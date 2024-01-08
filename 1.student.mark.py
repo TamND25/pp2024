@@ -45,3 +45,18 @@ def input_mark():
                 student_mark.setdefault(course_name)
                 student_mark[course_name] = marks
                 studentMarkList.append(student_mark)
+
+# Show courses
+def show_courses():
+    for i in range(numberOfCourses):
+        print(coursesList[i])
+
+# Show students
+def show_students():
+    for i in range(numberOfStudents):
+        print(studentsList[i])
+
+# Show marks
+def show_marks():
+    for i in range(numberOfStudents):
+        print(studentMarkList[i])
