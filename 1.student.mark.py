@@ -2,6 +2,8 @@ numberOfStudents = 0
 studentsList = []
 numberOfCourses = 0
 coursesList = []
+studenMark ={}
+studentMarkList = []
 
 # Input the total number of students
 def input_number_of_students():
@@ -31,3 +33,15 @@ def input_course_information():
         c_name = input("Enter course name: ")
         coursesList.append({"ID": c_id, "Name": c_name})
     return coursesList
+
+# Input mark
+def input_mark():
+    course_name = input("Enter course name: ")
+    for student in studentsList:
+        student_mark = {'Name': student['Name']}
+        for course in coursesList:
+            if course_name == course['Name']:
+                marks = float(input(f"Enter marks for {student['Name']} in {course_name}: "))
+                student_mark.setdefault(course_name)
+                student_mark[course_name] = marks
+                studentMarkList.append(student_mark)
