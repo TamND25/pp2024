@@ -60,3 +60,52 @@ def show_students():
 def show_marks():
     for i in range(numberOfStudents):
         print(studentMarkList[i])
+
+def main():
+
+    while(True):
+        print("""
+    0. Exit
+    1. Input the total number of students.              
+    2. Input student information.
+    3. Input the total number of courses.
+    4. Input course information.
+    5. Input mark for student for a course.
+    6. Show the courses.
+    7. Show the students.
+    8. Show the student mark of a course.
+    """)
+        option = input("Your choice: ")
+        if option == '0':
+            break
+
+        elif option == '1':
+            input_number_of_students()
+
+        elif option == '2':
+            input_student_information()
+
+        elif option == '3':
+            input_number_of_courses()
+
+        elif option == '4':
+            input_course_information()
+
+        elif option == '5':
+            input_mark()
+
+        elif option == '6':
+            show_courses()
+
+        elif option == '7':
+            show_students()
+
+        elif option == '8':
+            show_marks()
+
+        else:
+            print("Invalid input. Please try again!")
+
+
+if __name__ == "__main__":
+    main()
