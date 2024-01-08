@@ -1,6 +1,7 @@
 numberOfStudents = 0
 studentsList = []
 numberOfCourses = 0
+coursesList = []
 
 # Input the total number of students
 def input_number_of_students():
@@ -22,3 +23,11 @@ def input_number_of_courses():
     global numberOfCourses
     numberOfCourses = int(input("Number of courses: "))
     return numberOfCourses
+
+# Input course information
+def input_course_information():
+    for _ in range(numberOfCourses):
+        c_id = input("Enter course ID: ")
+        c_name = input("Enter course name: ")
+        coursesList.append({"ID": c_id, "Name": c_name})
+    return coursesList
