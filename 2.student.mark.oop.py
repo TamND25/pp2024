@@ -37,3 +37,17 @@ class StudentsList:
     def showStudentsList(self):
         for student in self.__students:
             print(f"Name: {student.showname()}, ID: {student.showid()}, DOB: {student.showdob()}")
+
+class CoursesList:
+    def __init__(self):
+        self.__courses = []
+    
+    def add_student(self, course):
+        if isinstance(course, Course):
+            self.__courses.append(course)
+        else:
+            print("Invalid course")
+    
+    def showStudentsList(self):
+        for course in self.__courses:
+            print(f"Name: {course.showname()}, ID: {course.showid()}")
