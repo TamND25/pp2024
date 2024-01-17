@@ -1,3 +1,10 @@
+numberOfStudents = 0
+
+def set_number_of_student():
+    global numberOfStudents
+    numberOfStudents = int(input("Number of students: "))
+    return numberOfStudents
+
 class Student:
     def __init__(self, name, id, dob):
         self.__name = name
