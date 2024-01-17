@@ -42,10 +42,11 @@ class StudentsList:
         self.__students = []
     
     def add_student(self, student):
-        if isinstance(student, Student):
-            self.__students.append(student)
-        else:
-            print("Invalid student")
+        for _ in range(numberOfStudents):
+            if isinstance(student, Student):
+                self.__students.append(student)
+            else:
+                print("Invalid student")
     
     def showStudentsList(self):
         for student in self.__students:
@@ -56,10 +57,11 @@ class CoursesList:
         self.__courses = []
     
     def add_student(self, course):
-        if isinstance(course, Course):
-            self.__courses.append(course)
-        else:
-            print("Invalid course")
+        for _ in range(numberOfCourses):
+            if isinstance(course, Course):
+                self.__courses.append(course)
+            else:
+                print("Invalid course")
     
     def showStudentsList(self):
         for course in self.__courses:
