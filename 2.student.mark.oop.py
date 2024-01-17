@@ -23,3 +23,17 @@ class Course:
     
     def showid(self):
         return self.__id
+    
+class StudentsList:
+    def __init__(self):
+        self.__students = []
+    
+    def add_student(self, student):
+        if isinstance(student, Student):
+            self.__students.append(student)
+        else:
+            print("Invalid student")
+    
+    def showStudentsList(self):
+        for student in self.__students:
+            print(f"Name: {student.showname()}, ID: {student.showid()}, DOB: {student.showdob()}")
