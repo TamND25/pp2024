@@ -1,9 +1,15 @@
 numberOfStudents = 0
+numberOfCourses = 0
 
 def set_number_of_student():
     global numberOfStudents
     numberOfStudents = int(input("Number of students: "))
     return numberOfStudents
+
+def input_number_of_courses():
+    global numberOfCourses
+    numberOfCourses = int(input("Number of courses: "))
+    return numberOfCourses
 
 class Student:
     def __init__(self, name, id, dob):
