@@ -94,6 +94,19 @@ def input_courses_information():
         standard_course = Course(c_id, c_name)
         course_list.add_course(standard_course)
 
+def add_mark():
+        for student in student_list._StudentsList__students:
+            for course in course_list._CoursesList__courses:
+                mark = float(input(f"Enter the mark of {student.show_name()} for {course.show_name()}: "))
+                student.add_mark(course, mark)
+
+def show_mark():
+    for student in student_list._StudentsList__students:
+        print(f"\nStudent: {student.show_name}")
+        marks = student.show_mark()
+        for course_name, mark in marks.items():
+            print(f"{course_name}: {mark}")
+
 def main():
 
     while(True):
@@ -125,7 +138,7 @@ def main():
             input_students_information()
 
         elif option == '5':
-            
+            add_mark()
 
         elif option == '6':
             student_list.show_students_list()
@@ -134,7 +147,7 @@ def main():
             course_list.show_courses_list()
 
         elif option == '8':
-            
+            show_mark()
 
         else:
             print("Invalid input. Please try again!")
