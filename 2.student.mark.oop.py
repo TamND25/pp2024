@@ -135,7 +135,7 @@ def main():
             input_students_information()
 
         elif option == '4':
-            input_students_information()
+            input_courses_information()
 
         elif option == '5':
             add_mark()
