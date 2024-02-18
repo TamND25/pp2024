@@ -69,3 +69,48 @@ def set_number_of_courses():
     global number_courses
     number_courses = int(input("Number of courses: "))
     return number_courses
+
+def main():
+
+    while(True):
+        print("""
+    0. Exit
+    1. Input the total number of students.    
+    2. Input the total number of courses.          
+    3. Input student information. 
+    4. Input course information.
+    5. Input mark for student for a course.
+    6. Show the students.
+    7. Show the courses.
+    8. Show the students' mark.
+    """)
+        option = input("Your choice: ")
+        if option == '0':
+            break
+
+        elif option == '1':
+            
+
+        elif option == '2':
+            
+
+        elif option == '3':
+            
+
+        elif option == '4':
+            
+
+        elif option == '5':
+            
+
+        elif option == '6':
+            
+
+        elif option == '7':
+            
+
+        elif option == '8':
+            
+
+        else:
+            print("Invalid input. Please try again!")
