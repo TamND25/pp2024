@@ -2,19 +2,19 @@ number_students = 0
 number_courses = 0
 
 class Student:
-    def __init__(self, name, id, dob):
+    def __init__(self, id, name, dob):
         self.__name = name
         self.__id = id
         self.__dob = dob
         self.__marks = {}
     
-    def showname(self):
+    def show_name(self):
         return self.__name
     
-    def showid(self):
+    def show_id(self):
         return self.__id
     
-    def showdob(self):
+    def show_dob(self):
         return self.__dob
     
     def add_mark(self, course, mark):
@@ -24,14 +24,14 @@ class Student:
         return self.__marks
         
 class Course:
-    def __init__(self, name, id):
+    def __init__(self, id, name):
         self.__name = name
         self.__id = id
 
-    def showname(self):
+    def show_name(self):
         return self.__name
     
-    def showid(self):
+    def show_id(self):
         return self.__id
     
 class StudentsList:
@@ -39,30 +39,28 @@ class StudentsList:
         self.__students = []
     
     def add_student(self, student):
-        for _ in range(number_students):
-            if isinstance(student, Student):
-                self.__students.append(student)
-            else:
-                print("Invalid student")
+        if isinstance(student, Student):
+            self.__students.append(student)
+        else:
+            print("Invalid student")
     
     def show_students_list(self):
         for student in self.__students:
-            print(f"Name: {student.showname()}, ID: {student.showid()}, DOB: {student.showdob()}")
+            print(f"ID: {student.show_id()}, Name: {student.show_name()}, DOB: {student.show_dob()}")
 
 class CoursesList:
     def __init__(self):
         self.__courses = []
     
-    def add_student(self, course):
-        for _ in range(number_courses):
-            if isinstance(course, Course):
-                self.__courses.append(course)
-            else:
-                print("Invalid course")
+    def add_course(self, course):
+        if isinstance(course, Course):
+            self.__courses.append(course)
+        else:
+            print("Invalid course")
     
     def show_courses_list(self):
         for course in self.__courses:
-            print(f"Name: {course.showname()}, ID: {course.showid()}")
+            print(f" ID: {course.show_id()}, Name: {course.show_name()}")
 
 student_list = StudentsList()
 course_list = CoursesList()
@@ -102,10 +100,10 @@ def add_mark():
 
 def show_mark():
     for student in student_list._StudentsList__students:
-        print(f"\nStudent: {student.show_name}")
+        print(f"\nStudent: {student.show_name()}")
         marks = student.show_mark()
-        for course_name, mark in marks.items():
-            print(f"{course_name}: {mark}")
+        for course, mark in marks.items():
+            print(f"{course.show_name()}: {mark}")
 
 def main():
 
