@@ -38,7 +38,7 @@ class StudentsList:
             else:
                 print("Invalid student")
     
-    def showStudentsList(self):
+    def show_students_list(self):
         for student in self.__students:
             print(f"Name: {student.showname()}, ID: {student.showid()}, DOB: {student.showdob()}")
 
@@ -53,7 +53,7 @@ class CoursesList:
             else:
                 print("Invalid course")
     
-    def showStudentsList(self):
+    def show_courses_list(self):
         for course in self.__courses:
             print(f"Name: {course.showname()}, ID: {course.showid()}")
 
@@ -69,6 +69,23 @@ def set_number_of_courses():
     global number_courses
     number_courses = int(input("Number of courses: "))
     return number_courses
+
+def input_students_information():
+    for _ in range(number_students):
+        s_id = input("Student ID: ")
+        s_name = input("Student Name: ")
+        s_dob = input("Student's Date of Birth: ")
+        print("\n")
+        standard_student = Student(s_id, s_name, s_dob)
+        student_list.add_student(standard_student)
+
+def input_courses_information():
+    for _ in range(number_courses):
+        c_id = input("Course ID: ")
+        c_name = input("Course Name: ")
+        print("\n")
+        standard_course = Course(c_id, c_name)
+        course_list.add_course(standard_course)
 
 def main():
 
@@ -89,25 +106,25 @@ def main():
             break
 
         elif option == '1':
-            
+            set_number_of_student()
 
         elif option == '2':
-            
+            set_number_of_courses()
 
         elif option == '3':
-            
+            input_students_information()
 
         elif option == '4':
-            
+            input_students_information()
 
         elif option == '5':
             
 
         elif option == '6':
-            
+            student_list.show_students_list()
 
         elif option == '7':
-            
+            course_list.show_courses_list()
 
         elif option == '8':
             
