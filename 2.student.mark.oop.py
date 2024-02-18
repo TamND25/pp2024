@@ -1,15 +1,5 @@
-numberOfStudents = 0
-numberOfCourses = 0
-
-def set_number_of_student():
-    global numberOfStudents
-    numberOfStudents = int(input("Number of students: "))
-    return numberOfStudents
-
-def input_number_of_courses():
-    global numberOfCourses
-    numberOfCourses = int(input("Number of courses: "))
-    return numberOfCourses
+number_students = 0
+number_courses = 0
 
 class Student:
     def __init__(self, name, id, dob):
@@ -42,7 +32,7 @@ class StudentsList:
         self.__students = []
     
     def add_student(self, student):
-        for _ in range(numberOfStudents):
+        for _ in range(number_students):
             if isinstance(student, Student):
                 self.__students.append(student)
             else:
@@ -57,7 +47,7 @@ class CoursesList:
         self.__courses = []
     
     def add_student(self, course):
-        for _ in range(numberOfCourses):
+        for _ in range(number_courses):
             if isinstance(course, Course):
                 self.__courses.append(course)
             else:
@@ -66,3 +56,16 @@ class CoursesList:
     def showStudentsList(self):
         for course in self.__courses:
             print(f"Name: {course.showname()}, ID: {course.showid()}")
+
+student_list = StudentsList()
+course_list = CoursesList()
+
+def set_number_of_student():
+    global number_students
+    number_students = int(input("Number of students: "))
+    return number_students
+
+def set_number_of_courses():
+    global number_courses
+    number_courses = int(input("Number of courses: "))
+    return number_courses
