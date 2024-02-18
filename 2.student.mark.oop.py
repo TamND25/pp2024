@@ -6,6 +6,7 @@ class Student:
         self.__name = name
         self.__id = id
         self.__dob = dob
+        self.__marks = {}
     
     def showname(self):
         return self.__name
@@ -15,6 +16,12 @@ class Student:
     
     def showdob(self):
         return self.__dob
+    
+    def add_mark(self, course, mark):
+        self.__marks[course] = mark
+
+    def show_mark(self):
+        return self.__marks
         
 class Course:
     def __init__(self, name, id):
@@ -131,3 +138,6 @@ def main():
 
         else:
             print("Invalid input. Please try again!")
+
+if __name__ == "__main__":
+    main()
