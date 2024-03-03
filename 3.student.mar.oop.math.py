@@ -136,7 +136,7 @@ def input_courses_information(stdscr):
     stdscr.clear()
     while len(course_list._CoursesList__courses) < number_courses:
         while True:
-            stdscr.addstr(f"Course {_+1}: ")
+            stdscr.addstr(f"Course {len(course_list._CoursesList__courses)+1}: ")
             stdscr.addstr("\nCourse ID: ")
             stdscr.refresh()
             curses.echo()
