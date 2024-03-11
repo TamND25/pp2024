@@ -1,4 +1,5 @@
 import curses
+import gzip
 from domains.student import Student
 from domains.course import Course
 from domains.student_list import StudentsList
@@ -128,5 +129,37 @@ def add_mark(stdscr, student_list, course_list, filename):
     stdscr.getch()
     stdscr.clear()
 
-    
+def load_data(filename):
+    student_list = StudentsList()
+    course_list = CoursesList()
+    try:
+        with gzip.open(filename, 'rt') as file:
+            data = file.readlines()
+            for line in data:
+                line = line.strip().split(',')
+                if line[0] == 'S':
+                    student_list.add_student(Student(line[1], line[2], line[3]))
+                elif line[0] == 'C':
+                    course_list.add_course(Course(line[1], line[2], int(line[3])))
+                elif line[0] == 'M':
+                    for course in course_list._CoursesList__courses:
+                        if course.show_id() == line[2]:
+                            for student in student_list._StudentsList__students:
+                                if student.show_id() == line[1]:
+                                    student.add_mark(course, float(line[3]))
+                                    break
+                            break
+    except FileNotFoundError:
+        pass
+    return student_list, course_list
 
+def save_data(student_list, course_list):
+    with gzip.open("students.dat", 'wt') as file:
+        for student in student_list._StudentsList__students:
+            file.write(f"S,{student.show_id()},{student.show_name()},{student.show_dob()}\n")
+        for course in course_list._CoursesList__courses:
+            file.write(f"C,{course.show_id()},{course.show_name()},{course.show_credit()}\n")
+        for student in student_list._StudentsList__students:
+            marks = student.show_mark()
+            for course, mark in marks.items():
+                file.write(f"M,{student.show_id()},{course.show_id()},{mark}\n")

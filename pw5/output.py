@@ -12,6 +12,9 @@ def show_mark(stdscr, student_list):
         marks = student.show_mark()
         for course, mark in marks.items():
             stdscr.addstr(f"{course.show_name()}: {mark}\n")
+        stdscr.addstr("Press any key to show the next student!")
+        stdscr.getch()   
+        stdscr.clear()
     stdscr.addstr("Press any key to close!")
     stdscr.getch()
     stdscr.clear()

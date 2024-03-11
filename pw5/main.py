@@ -1,14 +1,15 @@
 import curses
-from input import set_number_of_student, set_number_of_courses, input_students_information, input_courses_information, add_mark
+from input import set_number_of_student, set_number_of_courses, input_students_information, input_courses_information, add_mark, load_data, save_data
 from output import show_mark, round_down_mark, sort_gpa
 from domains.student_list import StudentsList
 from domains.course_list import CoursesList
 
 
 def main(stdscr):
-
     student_list = StudentsList()
     course_list = CoursesList()
+
+    student_list, course_list = load_data("students.dat")
 
     stdscr.clear()
 
@@ -32,8 +33,8 @@ def main(stdscr):
         option_str = stdscr.getstr().decode()
         option = option_str
         
-            
         if option == '0':
+            save_data(student_list, course_list)
             break
         elif option == '1':
             set_number_of_student(stdscr)
