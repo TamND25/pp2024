@@ -28,34 +28,33 @@ def main(stdscr):
     Input your option: 
     """)
         stdscr.refresh()
-        option_str = stdscr.getstr().decode()
-        option = int(option_str)
         curses.echo()
+        option_str = stdscr.getstr().decode()
+        option = option_str
+        
             
-        if option == 0:
+        if option == '0':
             break
-        elif option == 1:
+        elif option == '1':
             set_number_of_student(stdscr)
-        elif option == 2:
+        elif option == '2':
             set_number_of_courses(stdscr)
-        elif option == 3:
+        elif option == '3':
             input_students_information(stdscr, student_list, "students.txt")
-        elif option == 4:
+        elif option == '4':
             input_courses_information(stdscr, course_list, "courses.txt")
-        elif option == 5:
+        elif option == '5':
             add_mark(stdscr, student_list, course_list, "marks.txt")
-        elif option == 6:
+        elif option == '6':
             student_list.show_students_list(stdscr)
-        elif option == 7:
+        elif option == '7':
             course_list.show_courses_list(stdscr)
-        elif option == 8:
+        elif option == '8':
             show_mark(stdscr, student_list)
-        elif option == 9:
+        elif option == '9':
             round_down_mark(stdscr, student_list)
-        elif option == 10:
+        elif option == '10':
             sort_gpa(stdscr, student_list)
-        elif option == 11:
-            break
         else:
             stdscr.addstr("\nInvalid input. Please try again!")
             stdscr.addstr("Press any key to close!")
